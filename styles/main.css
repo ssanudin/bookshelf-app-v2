@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ededed;
+}
+
+header {
+  background: yellowgreen;
+  padding: 1.1rem;
+  color: #fff;
+}
+
+main {
+  padding: 2rem 0 5rem;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.toast {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1090;
+  width: max-content;
+  max-width: 100%;
+  margin: 2rem;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(154, 160, 185, 0.05),
+    0 8px 16px rgba(166, 173, 201, 0.2);
+  transition: opacity 0.2s linear;
+}
+
+.toast:is(.hide) {
+  opacity: 0;
+}
+
+.toast:not(.hide) {
+  opacity: 1;
+}
+
+.toast-header {
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 8px 8px 0 0;
+}
+
+.toast-body {
+  padding: 1rem 1rem 2rem;
+}
+
+.toast-warning {
+  color: #664d03;
+  background-color: #fff3cd;
+  border-bottom: 2px solid #ffecb5;
+}
+
+.toast-success {
+  color: #0f5132;
+  background-color: #d1e7dd;
+  border-bottom: 2px solid #badbcc;
+}
+
+.toast-danger {
+  color: #842029;
+  background-color: #f8d7da;
+  border-bottom: 2px solid #f5c2c7;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block;
+}
+
+.card {
+  margin: 1.4rem 0;
+  padding: 2rem;
+  border: 1px solid #dedede;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(154, 160, 185, 0.05),
+    0 8px 16px rgba(166, 173, 201, 0.2);
+}
+
+.title {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.icon,
+svg {
+  height: 1.5rem;
+  align-self: center;
+  margin-right: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  font-family: "Poppins", sans-serif;
+  background: #ededed;
+  border: 1px solid yellowgreen;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 1.3rem;
+}
+
+.required {
+  color: #ff0000;
+}
+
+.btn {
+  font-family: "Poppins", sans-serif;
+  background-color: yellowgreen;
+  border: 1px solid yellowgreen;
+  border-radius: 8px;
+  padding: 0.5rem 1.3rem;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  align-self: flex-end;
+  min-width: 100px;
+}
+
+.btn-submit {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-submit:hover {
+  background-color: #fff;
+  color: yellowgreen;
+  box-shadow: 0 4px 8px rgba(154, 160, 185, 0.05),
+    0 8px 16px rgba(166, 173, 201, 0.2);
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-info_first {
+  display: flex;
+}
+
+.book-info_img {
+  margin-right: 1.5rem;
+  max-height: 150px;
+  max-width: 100px;
+}
+
+.book-info_img img {
+  max-height: 150px;
+  max-width: 100px;
+  object-fit: cover;
+}
+
+.book-info_name,
+.book-info_author,
+.book-info_year {
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+}
+
+.book-info_author,
+.book-info_year {
+  font-weight: normal;
+}
+
+.book-info_desc {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.book .action {
+  display: flex;
+  align-self: center;
+}
+
+.btn-icon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-finished {
+  background: url("../images/check-circle.svg");
+  background-size: contain;
+}
+
+.btn-finished:hover {
+  background: url("../images/check-circle-fill.svg");
+  background-size: contain;
+}
+
+.btn-unfinished {
+  background: url("../images/x-circle.svg");
+  background-size: contain;
+}
+
+.btn-unfinished:hover {
+  background: url("../images/x-circle-fill.svg");
+  background-size: contain;
+}
+
+.btn-trash {
+  background: url("../images/trash3.svg");
+  background-size: contain;
+  margin-right: 3rem;
+}
+
+.btn-trash:hover {
+  background: url("../images/trash3-fill.svg");
+  background-size: contain;
+}
+
+footer {
+  padding-bottom: 1rem;
+}
+
+footer p {
+  margin: 0;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+@media only screen and (min-width: 1000px) {
+  .container {
+    max-width: 1170px;
+    width: 80%;
+  }
+}

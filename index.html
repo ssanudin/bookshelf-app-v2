@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bookshelf App - A simple application to manage your book collection."
+    />
+    <meta name="keywords" content="books, bookshelf, app, manage, collection" />
+    <meta name="author" content="Sanudin" />
+    <meta property="og:title" content="Bookshelf App" />
+    <meta
+      property="og:description"
+      content="A simple application to manage your book collection."
+    />
+    <meta property="og:image" content="images/preview.png" />
+    <meta
+      property="og:url"
+      content="https://ssanudin.github.io/bookshelf-app-v2/"
+    />
+    <!-- Note: Twitter has rebranded to X, but the twitter: meta tags are still in use -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bookshelf App" />
+    <meta
+      name="twitter:description"
+      content="A simple application to manage your book collection."
+    />
+    <meta name="twitter:image" content="images/preview.png" />
+
+    <title>Bookshelf App</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/main.css" />
+    <script defer src="scripts/main.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Bookshelf App</h1>
+      </div>
+    </header>
+
+    <main>
+      <div id="toast" class="toast hide">
+        <div class="toast-header"></div>
+        <div class="toast-body"></div>
+      </div>
+      <div class="container">
+        <section id="add-book" class="card">
+          <div class="title">
+            <img src="images/book.svg" alt="Book" class="icon" />
+            <h2>Tambah Buku Baru</h2>
+          </div>
+          <form action="#" id="form-add">
+            <div class="form-group">
+              <label for="book-name"
+                >Nama Buku <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="book-name"
+                name="book-name"
+                placeholder="Isi Judul Buku"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="book-author"
+                >Penulis <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="book-author"
+                name="book-author"
+                placeholder="Isi Penulis Buku"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="book-year"
+                >Tahun diterbitkan <span class="required">*</span></label
+              >
+              <input
+                type="number"
+                id="book-year"
+                name="book-year"
+                min="1900"
+                max="2099"
+                step="1"
+                placeholder="Isi Tahun Penerbitan Buku"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="book-desc">Deskripsi</label>
+              <textarea
+                id="book-desc"
+                name="book-desc"
+                rows="3"
+                placeholder="Buku Ini Tentang Apa"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="book-img">URL Gambar Cover</label>
+              <input
+                type="text"
+                id="book-img"
+                name="book-img"
+                placeholder="Isi Gambar/Foto Cover Buku, URL/Link nya saja ya"
+              />
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-submit">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  class="bi bi-plus-circle-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"
+                  />
+                </svg>
+                <span>Tambah</span>
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section id="filter-book" class="card">
+          <div class="title">
+            <img
+              src="images/funnel-fill.svg"
+              alt="Belum selesai"
+              class="icon"
+            />
+            <h2>Filter Buku</h2>
+          </div>
+          <form action="#" id="form-filter">
+            <div class="form-group">
+              <input
+                type="text"
+                id="book-filter"
+                name="book-filter"
+                placeholder="Penulis, Judul, Tahun diterbitkan"
+              />
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-submit">
+                <span>Filter</span>
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section id="unfinished-book" class="card">
+          <div class="title">
+            <img src="images/book-half.svg" alt="Belum selesai" class="icon" />
+            <h2>Belum selesai dibaca</h2>
+          </div>
+          <div class="book-list" id="unfinished"></div>
+        </section>
+
+        <section id="finished-book" class="card">
+          <div class="title">
+            <img src="images/book-fill.svg" alt="Selesai" class="icon" />
+            <h2>Selesai dibaca</h2>
+          </div>
+          <div class="book-list" id="finished"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; Sanudin. Build with 💚.</p>
+    </footer>
+  </body>
+</html>
